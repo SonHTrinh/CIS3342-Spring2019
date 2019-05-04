@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Student Feedback</title>
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <script lang="javascript" type="text/javascript">
+        function Validate() {
+            var name = document.getElementById("txtName").value;
+            var email = document.getElementById("txtEmail").value;
+            var id = document.getElementById("numID").value;
+            var course = document.getElementById("txtCourse").value;
+            //var answer = document.getElementById("answer").value;
+
+            if (name == "") {
+                alert("Please enter your full name before submitting!");
+                return false;
+            }
+            else if (email == "") {
+                alert("Please enter your email before submitting!");
+                return false;
+            }
+            else if (id == "") {
+                alert("Please enter your TUid before submitting!");
+                return false;
+            }
+            else if (course == "") {
+                alert("Please select a course before submitting!");
+                return false;
+            }
+            else {
+                //submit the form for server processing
+                document.getElementById("frmStudentFeedback").submit();
+                return true;
+            }
+        }
+        function checkForm(form) {
+            if (!form.qc1.checked) {
+                alert("Please answer all the questions before submitting");
+                form.qc1.focus();
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welscome to Student Feedback - Temple University Spring 2019</h1>
+        <a href="http://cis-iis2.temple.edu/Spring2019/CIS3342_tug13955/">Home Page</a>
+    </header>
+    <form class="form" id="frmStudentFeedback" action="process.aspx" method="post">
+        <div>
+            <h3>Student Information</h3>
+            <label>Enter your full name: </label>
+            <br /><input type="text" id="txtName" name="txtName" size="25" />
+            <br />
+            <label>Enter your TU email address: </label>
+            <br /><input type="text" id="txtEmail" name="txtEmail" placeholder="tuxXXXXX@temple.edu" size="25" />
+            <br />
+            <label>Enter your 9-digit TUid: </label>
+            <br /><input type="number" id="numID" required name="numID" placeholder="9xxxxxxxx" maxlength="9"
+                         oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+            <br />
+        </div>
+        <div>
+            <h3>Choose the course that you want to provide feedback</h3>
+            <label>Spring 2019 CIS courses</label>
+            <select id="txtCourse" name="txtCourse">
+                <option value="">Select course</option>
+                <option value="cis3309">CIS 3309</option>
+                <option value="cis3342">CIS 3342</option>
+                <option value="cis4296">CIS 4296</option>
+            </select>
+        </div>
+        <div class="course">
+            <h3>Feedback to the course</h3>
+            <!--<p>**NOTE** Strongly Agree = 4 | Agree = 3 | Neutral = 2 | Disagree = 1 | Strongly Disagree = 0</p>-->
+            <label>1. The course provided me with new information.</label><br />
+            <input type="radio" name="qc1" value="4" />Strongly Agree
+            <input type="radio" name="qc1" value="3" />Agree
+            <input type="radio" name="qc1" value="2" />Neutral
+            <input type="radio" name="qc1" value="1" />Disagree
+            <input type="radio" name="qc1" value="0" />Strongly Disagree<br />
+            <br /><label>2. The length of the course was appropriate to cover content.</label><br />
+            <input type="radio" name="qc2" value="4" />Strongly Agree
+            <input type="radio" name="qc2" value="3" />Agree
+            <input type="radio" name="qc2" value="2" />Neutral
+            <input type="radio" name="qc2" value="1" />Disagree
+            <input type="radio" name="qc2" value="0" />Strongly Disagree<br />
+            <br /><label>3. The course was supported by adequate library resources.</label><br />
+            <input type="radio" name="qc3" value="4" />Strongly Agree
+            <input type="radio" name="qc3" value="3" />Agree
+            <input type="radio" name="qc3" value="2" />Neutral
+            <input type="radio" name="qc3" value="1" />Disagree
+            <input type="radio" name="qc3" value="0" />Strongly Disagree<br />
+            <br /><label>4. Projects and assignments related to the course learning outcomes.</label><br />
+            <input type="radio" name="qc4" value="4" />Strongly Agree
+            <input type="radio" name="qc4" value="3" />Agree
+            <input type="radio" name="qc4" value="2" />Neutral
+            <input type="radio" name="qc4" value="1" />Disagree
+            <input type="radio" name="qc4" value="0" />Strongly Disagree<br />
+            <br /><label>5. The course was delivered as outlined in the syllabus.</label><br />
+            <input type="radio" name="qc5" value="4" />Strongly Agree
+            <input type="radio" name="qc5" value="3" />Agree
+            <input type="radio" name="qc5" value="2" />Neutral
+            <input type="radio" name="qc5" value="1" />Disagree
+            <input type="radio" name="qc5" value="0" />Strongly Disagree<br />
+            <br /><label>6. Exams related to the course learning outcomes.</label><br />
+            <input type="radio" name="qc6" value="4" />Strongly Agree
+            <input type="radio" name="qc6" value="3" />Agree
+            <input type="radio" name="qc6" value="2" />Neutral
+            <input type="radio" name="qc6" value="1" />Disagree
+            <input type="radio" name="qc6" value="0" />Strongly Disagree<br />
+            <br /><label>7. You understand the purpose of the	assigned materials in the course.</label><br />
+            <input type="radio" name="qc7" value="4" />Strongly Agree
+            <input type="radio" name="qc7" value="3" />Agree
+            <input type="radio" name="qc7" value="2" />Neutral
+            <input type="radio" name="qc7" value="1" />Disagree
+            <input type="radio" name="qc7" value="0" />Strongly Disagree<br />
+            <br /><label>8. You contributed constructively during in-class activities.</label><br />
+            <input type="radio" name="qc8" value="4" />Strongly Agree
+            <input type="radio" name="qc8" value="3" />Agree
+            <input type="radio" name="qc8" value="2" />Neutral
+            <input type="radio" name="qc8" value="1" />Disagree
+            <input type="radio" name="qc8" value="0" />Strongly Disagree<br />
+            <br /><label>9. You feel you are achieving the learning outcomes.</label><br />
+            <input type="radio" name="qc9" value="4" />Strongly Agree
+            <input type="radio" name="qc9" value="3" />Agree
+            <input type="radio" name="qc9" value="2" />Neutral
+            <input type="radio" name="qc9" value="1" />Disagree
+            <input type="radio" name="qc9" value="0" />Strongly Disagree<br />
+            <br /><label>10. You received useful feedback on my assessments.</label><br />
+            <input type="radio" name="qc10" value="4" />Strongly Agree
+            <input type="radio" name="qc10" value="3" />Agree
+            <input type="radio" name="qc10" value="2" />Neutral
+            <input type="radio" name="qc10" value="1" />Disagree
+            <input type="radio" name="qc10" value="0" />Strongly Disagree<br />
+            <br /><label>11. Overall you are satisfied with the course.</label><br />
+            <input type="radio" name="qc11" value="4" />Strongly Agree
+            <input type="radio" name="qc11" value="3" />Agree
+            <input type="radio" name="qc11" value="2" />Neutral
+            <input type="radio" name="qc11" value="1" />Disagree
+            <input type="radio" name="qc11" value="0" />Strongly Disagree<br />
+            <br /><label>12. You would recommend this course to another student.</label><br />
+            <input type="radio" name="qc12" value="4" />Strongly Agree
+            <input type="radio" name="qc12" value="3" />Agree
+            <input type="radio" name="qc12" value="2" />Neutral
+            <input type="radio" name="qc12" value="1" />Disagree
+            <input type="radio" name="qc12" value="0" />Strongly Disagree<br />
+        </div>
+        <div class="instructor">
+            <h3>Feedback to the instructor</h3>
+            <!--<p>**NOTE** Strongly Agree = 4 | Agree = 3 | Neutral = 2 | Disagree = 1 | Strongly Disagree = 0</p>-->
+            <label>1. The instructor stimulated my interest in the subject.</label><br />
+            <input type="radio" name="qi1" value="4" />Strongly Agree
+            <input type="radio" name="qi1" value="3" />Agree
+            <input type="radio" name="qi1" value="2" />Neutral
+            <input type="radio" name="qi1" value="1" />Disagree
+            <input type="radio" name="qi1" value="0" />Strongly Disagree<br />
+            <br /><label>2. The instructor managed classroom time andpace well.</label><br />
+            <input type="radio" name="qi2" value="4" />Strongly Agree
+            <input type="radio" name="qi2" value="3" />Agree
+            <input type="radio" name="qi2" value="2" />Neutral
+            <input type="radio" name="qi2" value="1" />Disagree
+            <input type="radio" name="qi2" value="0" />Strongly Disagree<br />
+            <br /><label>3. The instructor was organized and prepared for every class.</label><br />
+            <input type="radio" name="qi3" value="4" />Strongly Agree
+            <input type="radio" name="qi3" value="3" />Agree
+            <input type="radio" name="qi3" value="2" />Neutral
+            <input type="radio" name="qi3" value="1" />Disagree
+            <input type="radio" name="qi3" value="0" />Strongly Disagree<br />
+            <br /><label>4. The instructor encouraged discussions and responded to questions.</label><br />
+            <input type="radio" name="qi4" value="4" />Strongly Agree
+            <input type="radio" name="qi4" value="3" />Agree
+            <input type="radio" name="qi4" value="2" />Neutral
+            <input type="radio" name="qi4" value="1" />Disagree
+            <input type="radio" name="qi4" value="0" />Strongly Disagree<br />
+            <br /><label>5. The instructor demonstrated in-depth knowledge of the subject.</label><br />
+            <input type="radio" name="qi5" value="4" />Strongly Agree
+            <input type="radio" name="qi5" value="3" />Agree
+            <input type="radio" name="qi5" value="2" />Neutral
+            <input type="radio" name="qi5" value="1" />Disagree
+            <input type="radio" name="qi5" value="0" />Strongly Disagree<br />
+            <br /><label>6. The instructor appeared enthusiastic and interested.</label><br />
+            <input type="radio" name="qi6" value="4" />Strongly Agree
+            <input type="radio" name="qi6" value="3" />Agree
+            <input type="radio" name="qi6" value="2" />Neutral
+            <input type="radio" name="qi6" value="1" />Disagree
+            <input type="radio" name="qi6" value="0" />Strongly Disagree<br />
+            <br /><label>7. The instructor used a variety of instructional methods to reach the course objectives (e.g. group discussions, student presentations, etc.).</label><br />
+            <input type="radio" name="qi7" value="4" />Strongly Agree
+            <input type="radio" name="qi7" value="3" />Agree
+            <input type="radio" name="qi7" value="2" />Neutral
+            <input type="radio" name="qi7" value="1" />Disagree
+            <input type="radio" name="qi7" value="0" />Strongly Disagree<br />
+            <br /><label>8. The instructor challenged students to do their best work.</label><br />
+            <input type="radio" name="qi8" value="4" />Strongly Agree
+            <input type="radio" name="qi8" value="3" />Agree
+            <input type="radio" name="qi8" value="2" />Neutral
+            <input type="radio" name="qi8" value="1" />Disagree
+            <input type="radio" name="qi8" value="0" />Strongly Disagree
+        </div>
+        <br />
+        <div class="button">
+            <input type="button" id="btnSubmit" name="btnSubmit" value="Submit Survey" onclick="Validate(); newFunc();" /><br />
+            <!--<button id="btnSubmit" name="btnSubmit" value="Submit Survey" onclick="return Validate();">Submit Survey</button><br />-->
+        </div>
+    </form>
+    <footer>
+        <p>CIS 3342 - Project 1</p>
+        <p>Son Trinh - Information Science & Technology B.S.</p>
+    </footer>
+</body>
+</html>

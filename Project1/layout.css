@@ -1,0 +1,31 @@
+﻿body {
+    background-color: linen;
+}
+
+.form {
+    margin: auto;
+    width: 30%;
+}
+
+header, footer {
+    background-color: white;
+    text-align: center
+}
+
+.course label {
+    font-weight: bold;
+}
+
+.instructor label {
+    font-weight: bold;
+}
+
+.button {
+    text-align: center;
+}
+
+#btnSubmit {
+    padding: 5px 30px;
+    text-align: center;
+    cursor: pointer;
+}

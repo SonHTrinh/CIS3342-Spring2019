@@ -1,0 +1,36 @@
+﻿body {
+    background-color: linen;
+}
+
+#frmBookStore {
+    margin: auto;
+    width: 35%;
+}
+
+header, footer {
+    background-color: white;
+    text-align: center
+}
+
+.button {
+    text-align: center;
+}
+
+#btnOrder {
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#btnReport {
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#btnNew {
+    padding: 5px 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
